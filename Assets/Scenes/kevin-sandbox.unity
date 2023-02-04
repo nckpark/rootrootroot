@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 743854604}
   - component: {fileID: 743854603}
   - component: {fileID: 743854607}
+  - component: {fileID: 743854608}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -233,16 +234,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4777aea0482eb1d48a37b8a100f868d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheerAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   isWatched: 0
+--- !u!114 &743854608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743854602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWinning: 0
+  momentum: 0
+  winThreshold: 0.5
+  momentumDecay: 0.1
+  decayDelay: 1
+  isDecayDelayActive: 0
 --- !u!4 &781086029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -260,6 +270,8 @@ GameObject:
   - component: {fileID: 1096016223}
   - component: {fileID: 1096016222}
   - component: {fileID: 1096016221}
+  - component: {fileID: 1096016226}
+  - component: {fileID: 1096016225}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -345,6 +357,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096016225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096016220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWinning: 0
+  momentum: 0
+  winThreshold: 0.5
+  momentumDecay: 0.1
+  decayDelay: 1
+  isDecayDelayActive: 0
+--- !u!114 &1096016226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096016220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4777aea0482eb1d48a37b8a100f868d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWatched: 0
 --- !u!1 &1132592333
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +777,7 @@ GameObject:
   - component: {fileID: 1785686400}
   - component: {fileID: 1785686399}
   - component: {fileID: 1785686403}
+  - component: {fileID: 1785686404}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -831,16 +875,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4777aea0482eb1d48a37b8a100f868d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheerAction:
-    m_Name: Cheer
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: c4ae5ea9-9cc3-4faa-963a-813e3d707594
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   isWatched: 0
+--- !u!114 &1785686404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785686398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWinning: 0
+  momentum: 0
+  winThreshold: 0.5
+  momentumDecay: 0.1
+  decayDelay: 1
+  isDecayDelayActive: 0
 --- !u!1 &2118052052
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +906,8 @@ GameObject:
   - component: {fileID: 2118052055}
   - component: {fileID: 2118052054}
   - component: {fileID: 2118052053}
+  - component: {fileID: 2118052058}
+  - component: {fileID: 2118052057}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -938,3 +993,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118052057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118052052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWinning: 0
+  momentum: 0
+  winThreshold: 0.5
+  momentumDecay: 0.1
+  decayDelay: 1
+  isDecayDelayActive: 0
+--- !u!114 &2118052058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118052052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4777aea0482eb1d48a37b8a100f868d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWatched: 0
