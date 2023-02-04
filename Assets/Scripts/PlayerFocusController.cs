@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerFocusController : MonoBehaviour
 {
+    [SerializeField] private Transform _playerCameraTransform;
+
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward, Color.red);
-        Physics.Raycast(transform.position, transform.forward, 10);  // TODO layer masks
+        Debug.DrawRay(_playerCameraTransform.position, _playerCameraTransform.forward * 10f, Color.red, 0.1f);
+        Physics.Raycast(_playerCameraTransform.position, _playerCameraTransform.forward, 10);  // TODO layer masks
     }
 }
