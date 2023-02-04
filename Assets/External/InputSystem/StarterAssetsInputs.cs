@@ -34,7 +34,12 @@ namespace StarterAssets
 			}
 		}
 
-		public void OnJump(InputValue value)
+        public void OnCheer(InputValue value)
+        {
+			CheerInput(value.isPressed);
+        }
+
+        public void OnJump(InputValue value)
 		{
 			JumpInput(value.isPressed);
 		}
@@ -56,7 +61,13 @@ namespace StarterAssets
 			look = newLookDirection;
 		}
 
-		public void JumpInput(bool newJumpState)
+        // cheer input
+        public void CheerInput(bool newCheerState)
+        {
+           
+        }
+
+        public void JumpInput(bool newJumpState)
 		{
 			jump = newJumpState;
 		}
