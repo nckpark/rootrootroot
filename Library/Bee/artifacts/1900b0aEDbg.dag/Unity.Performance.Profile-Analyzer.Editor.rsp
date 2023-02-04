@@ -115,7 +115,7 @@
 -define:STARTER_ASSETS_PACKAGES_CHECKED
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/StarterAssets/Editor/PackageChecker/StarterAssetsPackageChecker.dll"
+-r:"Assets/External/Editor/PackageChecker/StarterAssetsPackageChecker.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.18f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -340,6 +340,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/External/Editor/PackageChecker/StarterAssetsPackageChecker.dll"
 "Library/PackageCache/com.unity.performance.profile-analyzer@1.1.1/Editor/Analytics.cs"
 "Library/PackageCache/com.unity.performance.profile-analyzer@1.1.1/Editor/AssemblyInfo.cs"
 "Library/PackageCache/com.unity.performance.profile-analyzer@1.1.1/Editor/BoxAndWhiskerPlot.cs"
