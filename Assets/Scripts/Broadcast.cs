@@ -7,8 +7,13 @@ public class Broadcast : MonoBehaviour
     // bool is winning
     public bool isWinning = false;
 
+    public int pointValue = 0;
+
     // float momentum, any value
     public float momentum = 0.0f;
+
+    // max momentum
+    public float maxMomentum = 5000.0f;
 
     // float win threshold, how much momentum is needed to win
     public float winThreshold = 0.5f;
@@ -22,10 +27,28 @@ public class Broadcast : MonoBehaviour
     // bool is decay delay active
     public bool isDecayDelayActive = false;
 
+    // broadcast duration
+    public float broadcastDuration = 25.0f;
+
+    // enum broadcast status
+    public enum BroadcastStatus
+    {
+        Playing,
+        Won,
+        Lost
+    }
+
+    // broadcast status
+    public BroadcastStatus broadcastStatus = BroadcastStatus.Playing;
+
+    // ScoreManager of player
+    public ScoreManager playerScoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerScoreManager = GameObject.Find("PlayerCapsule").GetComponent<ScoreManager>();   
+        EndBroadcastAfterDuration();
     }
 
     // Update is called once per frame
@@ -52,6 +75,41 @@ public class Broadcast : MonoBehaviour
         // Log "Warning Bark!"
         Debug.Log("Warning Bark!");
 
+    }
+
+    void OnBroadcastWon()
+    {
+        // log "Broadcast Won!"
+        Debug.Log("Broadcast Won!");
+        // award points
+        playerScoreManager.AwardPoints(this);
+    }
+
+    void OnBroadcastLost()
+    {
+        // log "Broadcast Lost!"
+        Debug.Log("Broadcast Lost!");
+        playerScoreManager.AwardPoints(this);
+    }
+
+    public void EndBroadcastAfterDuration()
+    {
+        // call EndBroadcast() after broadcastDuration
+        Invoke("EndBroadcast", broadcastDuration);
+    }
+
+    public void EndBroadcast()
+    {
+        if (isWinning)
+        {
+            broadcastStatus = BroadcastStatus.Won;
+            OnBroadcastWon();
+        }
+        else
+        {
+            broadcastStatus = BroadcastStatus.Lost;
+            OnBroadcastLost();
+        }
     }
 
     void UpdateWinningStatus()
@@ -91,7 +149,7 @@ public class Broadcast : MonoBehaviour
                 // decay momentum
                 momentum -= momentumDecay * Time.deltaTime;
                 // clamp momentum between 0 and 5000
-                momentum = Mathf.Clamp(momentum, 0.0f, 5000.0f);
+                momentum = Mathf.Clamp(momentum, 0.0f, maxMomentum);
             }
         }
     }
