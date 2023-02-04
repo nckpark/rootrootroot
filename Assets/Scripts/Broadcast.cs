@@ -63,7 +63,9 @@ public class Broadcast : MonoBehaviour
             isWinning = true;
             // make cube red
             GetComponent<Renderer>().material.color = Color.blue;
-            // make fully transparent if momentum is max, opaque if momentum is win threshold
+            // scale cube by momentum
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
+
         }
         else
         {
@@ -75,7 +77,8 @@ public class Broadcast : MonoBehaviour
             isWinning = false;
             // make cube red
             GetComponent<Renderer>().material.color = Color.red;
-            // make fully transparent if momentum is win threshold, opaque if momentum is 0
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
+
         }
     }
 
@@ -87,6 +90,8 @@ public class Broadcast : MonoBehaviour
             {
                 // decay momentum
                 momentum -= momentumDecay * Time.deltaTime;
+                // clamp momentum between 0 and 5000
+                momentum = Mathf.Clamp(momentum, 0.0f, 5000.0f);
             }
         }
     }
