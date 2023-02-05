@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerFocusController : MonoBehaviour
 {
     [SerializeField] Camera _mainCamera;
-    private List<CinemachineVirtualCamera> _virtualCameras;
+    [SerializeField] CinemachineVirtualCamera[] _virtualCameras;
     private int _activeCameraIdx = 0;
     
     // last watchable watched
@@ -14,19 +14,12 @@ public class PlayerFocusController : MonoBehaviour
 
     void Start()
     {
-        _virtualCameras = new List<CinemachineVirtualCamera>(
-            GameObject.FindObjectsOfType<CinemachineVirtualCamera>()
-        );
-        _activeCameraIdx = _virtualCameras.FindIndex((cam) => cam.Priority == 99);
+        _activeCameraIdx = System.Array.FindIndex(_virtualCameras, (cam) => cam.Priority > 10);
     }
-
 
     void Update()
     {
-
-        Debug.DrawRay(_mainCamera.transform.position, _mainCamera.transform.forward * 10f, Color.red, 0.1f);
         watchOnRaycast();
-        
     }
 
     void StopWatchingLast()
@@ -71,15 +64,21 @@ public class PlayerFocusController : MonoBehaviour
 
     public void OnLookLeft()
     {
+        if(_activeCameraIdx == 0)
+            return;
+        
         _virtualCameras[_activeCameraIdx].Priority = 10;
-        _activeCameraIdx = ((_activeCameraIdx - 1) + _virtualCameras.Count) % _virtualCameras.Count;
+        _activeCameraIdx -= 1;
         _virtualCameras[_activeCameraIdx].Priority = 99;
     }
 
     public void OnLookRight()
     {
+        if(_activeCameraIdx >= _virtualCameras.Length - 1)
+            return;
+
         _virtualCameras[_activeCameraIdx].Priority = 10;
-        _activeCameraIdx = (_activeCameraIdx + 1) % _virtualCameras.Count;
+        _activeCameraIdx += 1;
         _virtualCameras[_activeCameraIdx].Priority = 99;
     }
 }
