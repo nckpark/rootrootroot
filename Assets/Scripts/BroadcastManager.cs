@@ -56,6 +56,31 @@ public class BroadcastManager : MonoBehaviour
                     StartNewRound();
                 }
             }
+            // on arrow up, increase activation level by 0.1
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                // find player object
+                GameObject player = GameObject.Find("Player");
+                decibelreading decibelReading = player.GetComponent<decibelreading>();
+                decibelReading.activationLevel += 0.1f;
+                // clamp decibel reading to 1
+                if (decibelReading.activationLevel > 1)
+                {
+                    decibelReading.activationLevel = 1;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                // find player object
+                GameObject player = GameObject.Find("Player");
+                decibelreading decibelReading = player.GetComponent<decibelreading>();
+                decibelReading.activationLevel -= 0.1f;
+                // clamp decibel reading to 0
+                if (decibelReading.activationLevel < 0)
+                {
+                    decibelReading.activationLevel = 0;
+                }
+            }
             return;
         }
         else if(!_startTransitionComplete)
