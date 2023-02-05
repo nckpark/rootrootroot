@@ -1,15 +1,20 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerFocusController : MonoBehaviour
 {
     [SerializeField] Camera _mainCamera;
     [SerializeField] CinemachineVirtualCamera[] _virtualCameras;
+    
     private int _activeCameraIdx = 0;
     private int _startCameraIdx = 0;
     
+    public CanvasGroup promptsCanvas;
+    public TMP_Text promptText; 
+
     // last watchable watched
     private Watchable _lastWatchableWatched;
 
@@ -31,6 +36,7 @@ public class PlayerFocusController : MonoBehaviour
         {
             _lastWatchableWatched.StopWatching();
             _lastWatchableWatched = null;
+            promptsCanvas.alpha = 0;
         }
     }
 
@@ -60,6 +66,25 @@ public class PlayerFocusController : MonoBehaviour
         {
             StopWatchingLast();
         }
+
+        if(
+            (_lastWatchableWatched != hitWatchable || (promptsCanvas.alpha == 0)) && 
+            hitWatchable.currentBroadcast != null &&
+            hitWatchable.currentBroadcast.broadcastStatus == Broadcast.BroadcastStatus.Playing
+        )
+        {
+            promptsCanvas.alpha = 1;
+            int promptIdx = Random.Range(0, hitWatchable.currentBroadcast.shoutPrompts.Length);
+            promptText.text = hitWatchable.currentBroadcast.shoutPrompts[promptIdx];
+        }
+        else if(
+            hitWatchable.currentBroadcast != null &&
+            hitWatchable.currentBroadcast.broadcastStatus != Broadcast.BroadcastStatus.Playing
+        )
+        {
+            promptsCanvas.alpha = 0;
+        }
+
         _lastWatchableWatched = hitWatchable;
         _lastWatchableWatched.StartWatching();
     }

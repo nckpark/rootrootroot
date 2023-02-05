@@ -48,19 +48,22 @@ public class Broadcast
     public ScoreManager playerScoreManager;
 
     public VideoSet videoSet;
+    public string[] shoutPrompts;
 
     // Start is called before the first frame update
     public Broadcast(
        ScoreManager scoreManager,
        VideoSet videoSet,
+       string[] shoutPrompts,
        int pointValue = 0,
        float duration = 25.0f,
        float maxMomentum = 5000f,
        float winThreshold = 0.5f,
        float momentumDecay = 0.1f,
        float decayDelay = 1.0f
-   )
+    )
     {
+        this.shoutPrompts = shoutPrompts;
         this.pointValue = pointValue;
         this.broadcastDuration = duration;
         this.maxMomentum = maxMomentum;
