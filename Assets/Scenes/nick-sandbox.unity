@@ -358,7 +358,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159437265}
-  m_LocalRotation: {x: -0.025994942, y: -0.0050232373, z: -0.00013062455, w: 0.99964947}
+  m_LocalRotation: {x: -0.025994942, y: -0.0050232355, z: -0.0001306245, w: 0.99964947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -803,7 +803,6 @@ GameObject:
   - component: {fileID: 393599511}
   - component: {fileID: 393599510}
   - component: {fileID: 393599509}
-  - component: {fileID: 393599508}
   m_Layer: 0
   m_Name: LeftTV
   m_TagString: Untagged
@@ -811,24 +810,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &393599508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393599507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWinning: 0
-  momentum: 0
-  winThreshold: 0.5
-  momentumDecay: 0.1
-  decayDelay: 1
-  isDecayDelayActive: 0
 --- !u!114 &393599509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,6 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWatched: 0
+  broadcaster: 1
 --- !u!65 &393599510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1323,7 +1305,6 @@ GameObject:
   - component: {fileID: 743854604}
   - component: {fileID: 743854603}
   - component: {fileID: 743854607}
-  - component: {fileID: 743854608}
   m_Layer: 0
   m_Name: FrontCenterTV
   m_TagString: Untagged
@@ -1423,24 +1404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWatched: 0
---- !u!114 &743854608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743854602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWinning: 0
-  momentum: 0
-  winThreshold: 0.5
-  momentumDecay: 0.1
-  decayDelay: 1
-  isDecayDelayActive: 0
+  broadcaster: 1
 --- !u!4 &818447549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0aa406b0fc39bfb419d340b17c2bb8ef, type: 3}
@@ -1457,6 +1421,7 @@ GameObject:
   - component: {fileID: 853673642}
   - component: {fileID: 853673641}
   - component: {fileID: 853673643}
+  - component: {fileID: 853673644}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1533,6 +1498,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &853673644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853673640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbb5ee54b70b504cad1d997d04d63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &969911660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +1946,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311349646}
-  m_LocalRotation: {x: -0.022451969, y: 0.23742647, z: 0.005489161, w: 0.97113055}
+  m_LocalRotation: {x: -0.022451952, y: 0.23742649, z: 0.005489158, w: 0.97113055}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2411,11 +2389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0050232373
+      value: -0.0050232355
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00013062455
+      value: -0.0001306245
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2727,6 +2705,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496177913}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1528285661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1528285663}
+  - component: {fileID: 1528285662}
+  m_Layer: 0
+  m_Name: BroadcastManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1528285662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528285661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c960a521a7cd62a41b79f3a7078b3d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _broadcastTypes: []
+--- !u!4 &1528285663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528285661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1536658707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0aa406b0fc39bfb419d340b17c2bb8ef, type: 3}
@@ -2822,7 +2845,6 @@ GameObject:
   - component: {fileID: 1734942703}
   - component: {fileID: 1734942702}
   - component: {fileID: 1734942701}
-  - component: {fileID: 1734942700}
   m_Layer: 0
   m_Name: RightTV
   m_TagString: Untagged
@@ -2830,24 +2852,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1734942700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734942699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWinning: 0
-  momentum: 0
-  winThreshold: 0.5
-  momentumDecay: 0.1
-  decayDelay: 1
-  isDecayDelayActive: 0
 --- !u!114 &1734942701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2861,6 +2865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWatched: 0
+  broadcaster: 1
 --- !u!65 &1734942702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2953,7 +2958,6 @@ GameObject:
   - component: {fileID: 1785686400}
   - component: {fileID: 1785686399}
   - component: {fileID: 1785686403}
-  - component: {fileID: 1785686404}
   m_Layer: 0
   m_Name: FrontRightTV
   m_TagString: Untagged
@@ -3053,24 +3057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWatched: 0
---- !u!114 &1785686404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785686398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWinning: 0
-  momentum: 0
-  winThreshold: 0.5
-  momentumDecay: 0.1
-  decayDelay: 1
-  isDecayDelayActive: 0
+  broadcaster: 1
 --- !u!1 &1934996290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,7 +3147,6 @@ GameObject:
   - component: {fileID: 2118052054}
   - component: {fileID: 2118052053}
   - component: {fileID: 2118052058}
-  - component: {fileID: 2118052057}
   m_Layer: 0
   m_Name: FrontLeftTV
   m_TagString: Untagged
@@ -3247,24 +3233,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2118052057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118052052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff60730b54cc22e46bbc8b80e98f5e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWinning: 0
-  momentum: 0
-  winThreshold: 0.5
-  momentumDecay: 0.1
-  decayDelay: 1
-  isDecayDelayActive: 0
 --- !u!114 &2118052058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3278,6 +3246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWatched: 0
+  broadcaster: 1
 --- !u!1 &2127484661
 GameObject:
   m_ObjectHideFlags: 0

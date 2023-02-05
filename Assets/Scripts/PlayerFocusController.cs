@@ -81,4 +81,10 @@ public class PlayerFocusController : MonoBehaviour
         _activeCameraIdx += 1;
         _virtualCameras[_activeCameraIdx].Priority = 99;
     }
+
+    public void OnCheer()
+    {
+        if(_lastWatchableWatched != null)
+            _lastWatchableWatched.Encourage(0.1f);
+    }
 }
