@@ -15,6 +15,7 @@ MonoBehaviour:
   clip: {fileID: 0}
   pointValue: 1
   broadcastDuration: 25
+  maxMomentum: 5000
   winThreshold: 0.5
   momentumDecay: 0.25
   decayDelay: 0.5
