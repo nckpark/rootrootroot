@@ -10,6 +10,7 @@ public class BroadcastType : ScriptableObject
     public float broadcastDuration = 25.0f;
     public float maxMomentum = 5000.0f;
     public VideoSet videoSet;
+    public string[] shoutPrompts;
 
     // float win threshold, how much momentum is needed to win
     public float winThreshold = 0.5f;

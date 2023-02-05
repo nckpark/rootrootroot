@@ -112,6 +112,7 @@ public class BroadcastManager : MonoBehaviour
                 caster.SetBroadcast(new Broadcast(
                     _playerScoreManager,
                     nextType.videoSet,
+                    nextType.shoutPrompts,
                     nextType.pointValue,
                     nextType.broadcastDuration,
                     nextType.maxMomentum,
@@ -166,6 +167,8 @@ public class BroadcastManager : MonoBehaviour
         _gameOver = true;
         roundActive = false;
         ClearAllBroadcasts();
+
+        _playerController.promptsCanvas.alpha = 0;
 
         _wonText.text = _playerScoreManager.broadcastsWon.Count.ToString();
         _lostText.text = _playerScoreManager.broadcastsLost.Count.ToString();

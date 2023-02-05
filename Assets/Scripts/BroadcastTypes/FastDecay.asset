@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: FastDecay
   m_EditorClassIdentifier: 
-  pointValue: 3
+  pointValue: 1
   broadcastDuration: 20
   maxMomentum: 1
   videoSet:
     idleClip: {fileID: 32900000, guid: a825cd13705986244907b4b11b451c44, type: 3}
     winningClip: {fileID: 32900000, guid: dfcc03011e42da9468bec8f405fd705f, type: 3}
     losingClip: {fileID: 32900000, guid: eede07cda29f0cb4baba2f4eaa515155, type: 3}
+  shoutPrompts:
+  - Boxing!
   winThreshold: 0.5
   momentumDecay: 0.25
   decayDelay: 0.5
