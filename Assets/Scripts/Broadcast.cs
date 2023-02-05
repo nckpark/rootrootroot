@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Broadcast : MonoBehaviour
+public class Broadcast
 {
     // bool is winning
     public bool isWinning = false;
@@ -23,12 +23,15 @@ public class Broadcast : MonoBehaviour
 
     // decay delay, how long until decay should resume
     public float decayDelay = 1.0f;
+    private float decayDelayTimer = 0.0f;
 
     // bool is decay delay active
     public bool isDecayDelayActive = false;
 
     // broadcast duration
     public float broadcastDuration = 25.0f;
+
+    public Watchable watchable;
 
     // enum broadcast status
     public enum BroadcastStatus
@@ -41,30 +44,44 @@ public class Broadcast : MonoBehaviour
     // broadcast status
     public BroadcastStatus broadcastStatus = BroadcastStatus.Playing;
 
-    // ScoreManager of player
     public ScoreManager playerScoreManager;
 
-    // Start is called before the first frame update
-    void Start()
+    public Broadcast(
+        ScoreManager scoreManager,
+        float duration=25.0f,
+        float winThreshold=0.5f,
+        float momentumDecay=0.1f, 
+        float decayDelay=1.0f
+    )
     {
-        playerScoreManager = GameObject.Find("PlayerCapsule").GetComponent<ScoreManager>();   
-        EndBroadcastAfterDuration();
+        this.broadcastDuration = duration;
+        this.winThreshold = winThreshold;
+        this.momentumDecay = momentumDecay;
+        this.decayDelay = decayDelay;
+        this.playerScoreManager = scoreManager;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called by Watchable once per frame
+    public void Update()
     {
         UpdateWinningStatus();
+        if(broadcastStatus != BroadcastStatus.Playing)
+            return;
+
         DecayIfNotOnDelay();
-        // call encourage when space bar pressed and watchable is being watched
-        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Watchable>().isWatched)
-        {
-            Encourage(0.1f);
+        if(isDecayDelayActive)
+        {   
+            decayDelayTimer -= Time.deltaTime;
+            if(decayDelayTimer <= 0f)
+                ResetDecayDelay();
         }
     }
     
     public void Encourage(float amount)
     {
+        if(broadcastStatus != BroadcastStatus.Playing)
+            return;
+
         // add to momentum
         momentum += amount;
         DelayDecay();
@@ -92,12 +109,6 @@ public class Broadcast : MonoBehaviour
         playerScoreManager.AwardPoints(this);
     }
 
-    public void EndBroadcastAfterDuration()
-    {
-        // call EndBroadcast() after broadcastDuration
-        Invoke("EndBroadcast", broadcastDuration);
-    }
-
     public void EndBroadcast()
     {
         if (isWinning)
@@ -120,9 +131,9 @@ public class Broadcast : MonoBehaviour
             // set is winning to true
             isWinning = true;
             // make cube red
-            GetComponent<Renderer>().material.color = Color.blue;
+            watchable.GetComponent<Renderer>().material.color = Color.blue;
             // scale cube by momentum
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
+            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
 
         }
         else
@@ -134,9 +145,8 @@ public class Broadcast : MonoBehaviour
             // set is winning to false
             isWinning = false;
             // make cube red
-            GetComponent<Renderer>().material.color = Color.red;
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
-
+            watchable.GetComponent<Renderer>().material.color = Color.red;
+            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
         }
     }
 
@@ -159,9 +169,7 @@ public class Broadcast : MonoBehaviour
     {
         // set decay delay active to true
         isDecayDelayActive = true;
-
-        // reset decay delay active to false after delay
-        Invoke("ResetDecayDelay", decayDelay);
+        decayDelayTimer = decayDelay;
     }
 
     // Reset decay delay

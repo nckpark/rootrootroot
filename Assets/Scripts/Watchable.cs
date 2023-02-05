@@ -8,7 +8,23 @@ public class Watchable : MonoBehaviour
 {
 
     public bool isWatched = false;
-   
+
+    public bool broadcaster = true;
+    public Broadcast currentBroadcast;
+
+    public void Update()
+    {
+        if(currentBroadcast != null)
+            currentBroadcast.Update();
+    }
+
+    public void SetBroadcast(Broadcast broadcast)
+    {
+        broadcast.watchable = this;
+        currentBroadcast = broadcast;
+        Invoke("EndBroadcast", currentBroadcast.broadcastDuration);
+    }
+
     public void StartWatching()
     {
         isWatched = true;
@@ -18,16 +34,14 @@ public class Watchable : MonoBehaviour
         isWatched = false;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Encourage(float amount)
     {
-        
+        if(isWatched && currentBroadcast != null)
+            currentBroadcast.Encourage(amount);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndBroadcast()
     {
-        
+        currentBroadcast.EndBroadcast();
     }
-
 }
