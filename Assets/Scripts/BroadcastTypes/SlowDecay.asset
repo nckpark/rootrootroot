@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SlowDecay
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
+  pointValue: 1
+  broadcastDuration: 25
   winThreshold: 0.5
   momentumDecay: 0.05
   decayDelay: 3

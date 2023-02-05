@@ -48,13 +48,17 @@ public class Broadcast
 
     public Broadcast(
         ScoreManager scoreManager,
+        int pointValue=0,
         float duration=25.0f,
+        float maxMomentum=5000f,
         float winThreshold=0.5f,
         float momentumDecay=0.1f, 
         float decayDelay=1.0f
     )
     {
+        this.pointValue = pointValue;
         this.broadcastDuration = duration;
+        this.maxMomentum = maxMomentum;
         this.winThreshold = winThreshold;
         this.momentumDecay = momentumDecay;
         this.decayDelay = decayDelay;

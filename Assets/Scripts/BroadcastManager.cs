@@ -22,7 +22,16 @@ public class BroadcastManager : MonoBehaviour
         {
             if(caster.currentBroadcast == null)
             {
-                caster.SetBroadcast(new Broadcast(_playerScoreManager));
+                BroadcastType nextType = _broadcastTypes[Random.Range(0, _broadcastTypes.Length)];
+                caster.SetBroadcast(new Broadcast(
+                    _playerScoreManager,
+                    nextType.pointValue,
+                    nextType.broadcastDuration,
+                    nextType.maxMomentum,
+                    nextType.winThreshold,
+                    nextType.momentumDecay,
+                    nextType.decayDelay
+                ));
             }
         }
     }

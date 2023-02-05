@@ -7,7 +7,9 @@ using UnityEngine.Video;
 public class BroadcastType : ScriptableObject
 {
     public VideoClip clip;
+    public int pointValue = 0;
     public float broadcastDuration = 25.0f;
+    public float maxMomentum = 5000.0f;
 
     // float win threshold, how much momentum is needed to win
     public float winThreshold = 0.5f;
