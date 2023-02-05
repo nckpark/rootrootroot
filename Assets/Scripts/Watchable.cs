@@ -90,7 +90,7 @@ public class Watchable : MonoBehaviour
     {
 
         // Log message that we're switching
-        Debug.Log("Switching video clip to " + broadcastStatus.ToString());
+        // Debug.Log("Switching video clip to " + broadcastStatus.ToString());
 
         // switch video clip based on broadcast status
         switch (broadcastStatus)

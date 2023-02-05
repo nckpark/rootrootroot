@@ -79,20 +79,20 @@ public class MicInput : MonoBehaviour
     {
         if (focus)
         {
-            Debug.Log("Focus");
+            // Debug.Log("Focus");
 
             if (!_isInitialized)
             {
-                Debug.Log("Init Mic");
+                // Debug.Log("Init Mic");
                 InitMic();
                 _isInitialized = true;
             }
         }
         if (!focus)
         {
-            Debug.Log("Pause");
+            // Debug.Log("Pause");
             StopMicrophone();
-            Debug.Log("Stop Mic");
+            // Debug.Log("Stop Mic");
             _isInitialized = false;
 
         }

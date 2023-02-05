@@ -35,6 +35,7 @@ public class Broadcast
 
     public Watchable watchable;
 
+    public PlayerFocusController playerController;
 
     // enum broadcast status
     public enum BroadcastStatus
@@ -55,17 +56,19 @@ public class Broadcast
 
     // Start is called before the first frame update
     public Broadcast(
-       ScoreManager scoreManager,
-       VideoSet videoSet,
-       string[] shoutPrompts,
-       int pointValue = 0,
-       float duration = 25.0f,
-       float maxMomentum = 5000f,
-       float winThreshold = 0.5f,
-       float momentumDecay = 0.1f,
-       float decayDelay = 1.0f
+        PlayerFocusController playerController,
+        ScoreManager scoreManager,
+        VideoSet videoSet,
+        string[] shoutPrompts,
+        int pointValue = 0,
+        float duration = 25.0f,
+        float maxMomentum = 5000f,
+        float winThreshold = 0.5f,
+        float momentumDecay = 0.1f,
+        float decayDelay = 1.0f
     )
     {
+        this.playerController = playerController;
         this.shoutPrompts = shoutPrompts;
         this.pointValue = pointValue;
         this.broadcastDuration = duration;
@@ -135,8 +138,7 @@ public class Broadcast
 
     void OnStoppedWinning()
     {
-        // Log "Warning Bark!"
-        Debug.Log("Warning Bark!");
+        playerController.AddWarningBark(watchable);
 
     }
 
@@ -144,7 +146,7 @@ public class Broadcast
     void NotifyVideoSwitcher()
     {
         // log notifying
-        Debug.Log("Notifying switcher!");
+        // Debug.Log("Notifying switcher!");
         // call switch video clip
         if (watchable != null)
             watchable.SwitchVideoClip(broadcastStatus);
@@ -152,16 +154,20 @@ public class Broadcast
 
     void OnBroadcastWon()
     {
-        // log "Broadcast Won!"
-        Debug.Log("Broadcast Won!");
+        // award points
         playerScoreManager.AwardPoints(this);
+        // show bark
+        playerController.AddWonBark(watchable);
+
         NotifyVideoSwitcher();
     }
 
     void OnBroadcastLost()
     {
-        Debug.Log("Broadcast Lost!");
         playerScoreManager.AwardPoints(this);
+        // show bark
+        playerController.AddLostBark(watchable);
+
         NotifyVideoSwitcher();
     }
 

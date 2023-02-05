@@ -11,7 +11,6 @@ public class ClockHand : MonoBehaviour
     void Start()
     {
         startRotation = transform.rotation.eulerAngles.z - 360;
-        Debug.Log(startRotation);
     }
 
     void Update()

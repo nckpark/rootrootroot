@@ -135,6 +135,7 @@ public class BroadcastManager : MonoBehaviour
             if(caster.currentBroadcast == null)
             {
                 caster.SetBroadcast(new Broadcast(
+                    _playerController,
                     _playerScoreManager,
                     nextType.videoSet,
                     nextType.shoutPrompts,
