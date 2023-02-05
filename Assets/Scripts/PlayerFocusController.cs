@@ -8,6 +8,7 @@ public class PlayerFocusController : MonoBehaviour
     [SerializeField] Camera _mainCamera;
     [SerializeField] CinemachineVirtualCamera[] _virtualCameras;
     private int _activeCameraIdx = 0;
+    private int _startCameraIdx = 0;
     
     // last watchable watched
     private Watchable _lastWatchableWatched;
@@ -15,6 +16,7 @@ public class PlayerFocusController : MonoBehaviour
     void Start()
     {
         _activeCameraIdx = System.Array.FindIndex(_virtualCameras, (cam) => cam.Priority > 10);
+        _startCameraIdx = _activeCameraIdx;
     }
 
     void Update()
@@ -79,6 +81,13 @@ public class PlayerFocusController : MonoBehaviour
 
         _virtualCameras[_activeCameraIdx].Priority = 10;
         _activeCameraIdx += 1;
+        _virtualCameras[_activeCameraIdx].Priority = 99;
+    }
+
+    public void Reset()
+    {
+        _virtualCameras[_activeCameraIdx].Priority = 10;
+        _activeCameraIdx = _startCameraIdx;
         _virtualCameras[_activeCameraIdx].Priority = 99;
     }
 

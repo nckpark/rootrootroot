@@ -74,6 +74,9 @@ public class Watchable : MonoBehaviour
 
     public void EndBroadcast()
     {
+        if(currentBroadcast == null)
+            return;
+            
         currentBroadcast.EndBroadcast();
         StartNextBroadcastDelay();
     }
