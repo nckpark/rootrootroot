@@ -190,7 +190,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119913302}
-  m_LocalRotation: {x: -0.0235243, y: -0.2791099, z: -0.0068398225, w: 0.95994663}
+  m_LocalRotation: {x: -0.023524273, y: -0.27910987, z: -0.0068398146, w: 0.95994663}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -358,7 +358,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159437265}
-  m_LocalRotation: {x: -0.025994942, y: -0.0050232355, z: -0.0001306245, w: 0.99964947}
+  m_LocalRotation: {x: -0.025994942, y: -0.0050232373, z: -0.00013062455, w: 0.99964947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1946,7 +1946,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311349646}
-  m_LocalRotation: {x: -0.022451952, y: 0.23742649, z: 0.005489158, w: 0.97113055}
+  m_LocalRotation: {x: -0.022451967, y: 0.23742646, z: 0.0054891603, w: 0.97113055}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2389,11 +2389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0050232355
+      value: -0.0050232373
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0001306245
+      value: -0.00013062455
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2734,7 +2734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c960a521a7cd62a41b79f3a7078b3d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _broadcastTypes: []
+  _broadcastTypes:
+  - {fileID: 11400000, guid: 157146e58fd05484298eaa2949e671fe, type: 2}
+  - {fileID: 11400000, guid: 87eccf4c9d7f3d24e8a169839a3972eb, type: 2}
+  - {fileID: 11400000, guid: 3fd9055e85beabd4b972b79f3bf2a8c5, type: 2}
 --- !u!4 &1528285663
 Transform:
   m_ObjectHideFlags: 0

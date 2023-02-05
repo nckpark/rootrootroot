@@ -11,11 +11,28 @@ public class Watchable : MonoBehaviour
 
     public bool broadcaster = true;
     public Broadcast currentBroadcast;
+    public float nextBroadcastDelay = 3f;
+
+    private float _nextBroadcastDelayTimer;
 
     public void Update()
     {
         if(currentBroadcast != null)
+        {
             currentBroadcast.Update();
+
+            if(currentBroadcast.broadcastStatus != Broadcast.BroadcastStatus.Playing)
+            {
+                if(_nextBroadcastDelayTimer <= 0f)
+                {
+                    currentBroadcast = null;
+                }
+                else
+                {
+                    _nextBroadcastDelayTimer -= Time.deltaTime;
+                }
+            }
+        }
     }
 
     public void SetBroadcast(Broadcast broadcast)
@@ -43,5 +60,11 @@ public class Watchable : MonoBehaviour
     public void EndBroadcast()
     {
         currentBroadcast.EndBroadcast();
+        StartNextBroadcastDelay();
+    }
+
+    public void StartNextBroadcastDelay()
+    {
+        _nextBroadcastDelayTimer = nextBroadcastDelay;
     }
 }
