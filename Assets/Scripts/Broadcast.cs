@@ -21,6 +21,8 @@ public class Broadcast
     // float momentum decay, how much momentum is lost per second
     public float momentumDecay = 0.1f;
 
+    private float feedbackDelay = 0.1f;
+
     // decay delay, how long until decay should resume
     public float decayDelay = 1.0f;
     private float decayDelayTimer = 0.0f;
@@ -32,6 +34,7 @@ public class Broadcast
     public float broadcastDuration = 25.0f;
 
     public Watchable watchable;
+
 
     // enum broadcast status
     public enum BroadcastStatus
@@ -84,11 +87,28 @@ public class Broadcast
             return;
 
         DecayIfNotOnDelay();
-        if(isDecayDelayActive)
+        if (isDecayDelayActive)            
         {   
             decayDelayTimer -= Time.deltaTime;
-            if(decayDelayTimer <= 0f)
+
+            if (decayDelayTimer > 0f) {
+                float feedbackProgress = feedbackDelay - (decayDelayTimer / feedbackDelay);
+                if (feedbackProgress < 1f)
+                {
+ 
+                    float newScale = (2f + (Mathf.Sin(feedbackProgress * Mathf.PI / 8)) * 0.1f);
+                  
+                    watchable.transform.localScale = new Vector3(newScale, newScale, 1);
+                } else
+                {
+                    watchable.transform.localScale = new Vector3(2, 2, 1);
+                }
+            }else
+            {
+                watchable.transform.localScale = new Vector3(2, 2, 1);
                 ResetDecayDelay();
+            }
+                
         }
     }
 
@@ -131,14 +151,12 @@ public class Broadcast
     {
         // log "Broadcast Won!"
         Debug.Log("Broadcast Won!");
-        // award points
         playerScoreManager.AwardPoints(this);
         NotifyVideoSwitcher();
     }
 
     void OnBroadcastLost()
     {
-        // log "Broadcast Lost!"
         Debug.Log("Broadcast Lost!");
         playerScoreManager.AwardPoints(this);
         NotifyVideoSwitcher();
@@ -163,15 +181,10 @@ public class Broadcast
 
     void UpdateWinningStatus()
     {
-        // if momentum is greater than win threshold
         if (momentum > winThreshold)
         {
-            // set is winning to true
             isWinning = true;
-            // make cube red
             watchable.GetComponent<Renderer>().material.color = Color.blue;
-            // scale cube by momentum
-            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 2.0f);
 
         }
         else
@@ -180,18 +193,14 @@ public class Broadcast
             {
                 OnStoppedWinning();
             }    
-            // set is winning to false
             isWinning = false;
-            // make cube red
             watchable.GetComponent<Renderer>().material.color = Color.red;
-            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 2.0f);
         }
     }
 
     void DecayIfNotOnDelay()
     {
         {
-            // if decay delay is not active
             if (!isDecayDelayActive)
             {
                 // decay momentum
