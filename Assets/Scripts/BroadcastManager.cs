@@ -29,7 +29,7 @@ public class BroadcastManager : MonoBehaviour
     public float focusTransitionTime = 0.5f;
     public float startTransitionTime = 2f;
 
-    public float roundLengthMinutes = 3f;
+    public float roundLength = 90f;
     private float _roundTimer;
     private bool _roundActive;
     private bool _startTransitionComplete;
@@ -149,12 +149,14 @@ public class BroadcastManager : MonoBehaviour
         _playerScoreManager.Reset();
         _currentPointLimit = _minPointValue;
         _difficultyWaveTimer = _difficultyWaveDuration;
-        _roundTimer = roundLengthMinutes * 60;
+        _roundTimer = roundLength;
         _roundActive = true;
 
         _cameraBrain.m_DefaultBlend.m_Time = startTransitionTime;
         _splashScreenCamera.Priority = 0;
         _splashScreenCanvas.alpha = 0;
+
+        _playerController.GetComponent<AudioSource>().Play();
 
         Invoke("StartBroadcasters", _cameraBrain.m_DefaultBlend.m_Time);
     }
