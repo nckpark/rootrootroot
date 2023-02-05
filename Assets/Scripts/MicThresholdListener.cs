@@ -28,6 +28,12 @@ public class MicThresholdListener : MonoBehaviour
     // cooldown for updating levels
     public float cooldown = 0.5f;
 
+    // sprite for not shouting
+    public Sprite notShoutingSprite;
+
+    // sprite for shouting 
+    public Sprite shoutingSprite;
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,9 +74,9 @@ public class MicThresholdListener : MonoBehaviour
         if (decibelLevel > decibelReading.activationLevel)
         {
             //text.GetComponent<TextMeshPro>().text = "Shouting";
-            text.SetText("Shouting");
-            //cube.GetComponent<Renderer>().material.color = Color.green;
-            cube.GetComponent<UnityEngine.UI.Image>().color = Color.green;
+            text.SetText("SHOUTING");
+            // Set to shouting sprite
+            cube.GetComponent<UnityEngine.UI.Image>().sprite = shoutingSprite;
         }
         else
         {
@@ -78,8 +84,9 @@ public class MicThresholdListener : MonoBehaviour
 
             //cube.GetComponent<Renderer>().material.color = Color.red;
             // change cube image color to red
-            text.SetText("Not Shouting");
-            cube.GetComponent<UnityEngine.UI.Image>().color = Color.red;
+            text.SetText("");
+            // Set to shouting sprite
+            cube.GetComponent<UnityEngine.UI.Image>().sprite = notShoutingSprite;
         }
         // scale cube
         // clamp scale between 1 and 2
