@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    // float score
-    public float score = 0.0f;
-
     // list of broadcasts won
     public List<Broadcast> broadcastsWon = new List<Broadcast>();
 
@@ -33,8 +30,6 @@ public class ScoreManager : MonoBehaviour
         {
             // add broadcast to broadcasts won
             broadcastsWon.Add(broadcast);
-            // add to score
-            score += broadcast.pointValue;
         }
         else
         {
@@ -42,5 +37,11 @@ public class ScoreManager : MonoBehaviour
             broadcastsLost.Add(broadcast);
         }
 
+    }
+
+    public void Reset()
+    {
+        broadcastsWon.Clear();
+        broadcastsLost.Clear();
     }
 }

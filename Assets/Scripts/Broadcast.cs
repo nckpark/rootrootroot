@@ -38,7 +38,8 @@ public class Broadcast
     {
         Playing,
         Won,
-        Lost
+        Lost,
+        Stopped
     }
 
     // broadcast status
@@ -145,6 +146,9 @@ public class Broadcast
 
     public void EndBroadcast()
     {
+        if(broadcastStatus == BroadcastStatus.Stopped)
+            return;
+
         if (isWinning)
         {
             broadcastStatus = BroadcastStatus.Won;
