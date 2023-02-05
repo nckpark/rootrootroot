@@ -462,7 +462,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119913302}
-  m_LocalRotation: {x: -0.023343505, y: -0.2765316, z: -0.0067192996, w: 0.96069777}
+  m_LocalRotation: {x: -0.02334348, y: -0.27653164, z: -0.006719294, w: 0.96069777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1997,6 +1997,8 @@ GameObject:
   - component: {fileID: 853673641}
   - component: {fileID: 853673643}
   - component: {fileID: 853673644}
+  - component: {fileID: 853673646}
+  - component: {fileID: 853673645}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2085,6 +2087,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbb5ee54b70b504cad1d997d04d63c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &853673645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853673640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6ffaec161e8dd4e8a8d3edc5c0d45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &853673646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853673640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5128d03958155f04f8b8dd4ae3e0f2a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decibelLevel: 0
+  activationLevel: 0
+  cheerCooldown: 1
+  playerFocusController: {fileID: 0}
 --- !u!1 &904415048
 GameObject:
   m_ObjectHideFlags: 0
