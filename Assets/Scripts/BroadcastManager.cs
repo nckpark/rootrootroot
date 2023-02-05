@@ -30,8 +30,8 @@ public class BroadcastManager : MonoBehaviour
     public float startTransitionTime = 2f;
 
     public float roundLength = 90f;
-    private float _roundTimer;
-    private bool _roundActive;
+    public float roundTimer;
+    public bool roundActive;
     private bool _startTransitionComplete;
     private bool _gameOver;
 
@@ -58,12 +58,12 @@ public class BroadcastManager : MonoBehaviour
 
         _cameraBrain.m_DefaultBlend.m_Time = startTransitionTime;
 
-        _roundActive = false;
+        roundActive = false;
     }
 
     void Update()
     {
-        if(!_roundActive)
+        if(!roundActive)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -84,10 +84,10 @@ public class BroadcastManager : MonoBehaviour
         }
         else
         {
-            _roundTimer -= Time.deltaTime;
+            roundTimer -= Time.deltaTime;
         }
 
-        if(_roundTimer <= 0f)
+        if(roundTimer <= 0f)
         {
             EndRound();
             return;
@@ -149,8 +149,8 @@ public class BroadcastManager : MonoBehaviour
         _playerScoreManager.Reset();
         _currentPointLimit = _minPointValue;
         _difficultyWaveTimer = _difficultyWaveDuration;
-        _roundTimer = roundLength;
-        _roundActive = true;
+        roundTimer = roundLength;
+        roundActive = true;
 
         _cameraBrain.m_DefaultBlend.m_Time = startTransitionTime;
         _splashScreenCamera.Priority = 0;
@@ -164,7 +164,7 @@ public class BroadcastManager : MonoBehaviour
     public void EndRound()
     {
         _gameOver = true;
-        _roundActive = false;
+        roundActive = false;
         ClearAllBroadcasts();
 
         _wonText.text = _playerScoreManager.broadcastsWon.Count.ToString();
