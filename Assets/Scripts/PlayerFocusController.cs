@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFocusController : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class PlayerFocusController : MonoBehaviour
 
     // last watchable watched
     private Watchable _lastWatchableWatched;
+
+    public Image warnBarkImage;
+    public Image wonBarkImage;
+    public Image lostBarkImage;
+    public CanvasGroup leftBarkCanvas;
+    public CanvasGroup rightBarkCanvas;
 
     void Start()
     {
@@ -120,5 +127,68 @@ public class PlayerFocusController : MonoBehaviour
     {
         if(_lastWatchableWatched != null)
             _lastWatchableWatched.Encourage(0.1f);
+    }
+
+    public (CanvasGroup, int) GetBarkTargetCanvas(Watchable watchable)
+    {
+        int  watchableCamIndex = System.Array.FindIndex(_virtualCameras, (cam) => cam.LookAt == watchable.transform);
+        if(watchableCamIndex < _activeCameraIdx)
+        {
+            return (leftBarkCanvas, 1);
+        }
+        else if(watchableCamIndex > _activeCameraIdx)
+        {
+            return (rightBarkCanvas, -1);
+        }
+       
+        return (null, 0);
+    }
+
+    public void AddWarningBark(Watchable watchable)
+    {
+        (CanvasGroup targetCanvas, int xMult) = GetBarkTargetCanvas(watchable);
+        if(targetCanvas != null)
+            AddBarkToCanvas(warnBarkImage, targetCanvas, xMult);
+    }
+
+    public void AddWonBark(Watchable watchable)
+    {
+        (CanvasGroup targetCanvas, int xMult) = GetBarkTargetCanvas(watchable);
+        if(targetCanvas != null)
+            AddBarkToCanvas(wonBarkImage, targetCanvas, xMult);
+    }
+
+    public void AddLostBark(Watchable watchable)
+    {
+        (CanvasGroup targetCanvas, int xMult) = GetBarkTargetCanvas(watchable);
+        if(targetCanvas != null)
+            AddBarkToCanvas(lostBarkImage, targetCanvas, xMult);
+    }
+
+    public void AddBarkToCanvas(Image barkImagePrefab, CanvasGroup canvas, int xMult=1)
+    {
+        Image imageObject = Instantiate(barkImagePrefab);
+        imageObject.transform.SetParent(canvas.transform, false);
+
+        imageObject.rectTransform.anchoredPosition = new Vector2(
+            xMult * -50f, 
+            Random.Range(-110, 110)
+        );
+        imageObject.rectTransform.rotation = Quaternion.Euler(
+            0, 0, xMult * Random.Range(10f, 45f)
+        );
+        StartCoroutine("FadeImage", imageObject);
+    }
+
+    public IEnumerator FadeImage(Image img)
+    {
+        while(img.color.a > 0f)
+        {
+            Color tempColor = img.color;
+            tempColor.a -= (0.75f * Time.deltaTime);
+            img.color = tempColor;
+            yield return null;
+        }
+        Destroy(img.gameObject);
     }
 }
