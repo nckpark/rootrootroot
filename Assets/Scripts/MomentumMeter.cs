@@ -33,8 +33,10 @@ public class MomentumMeter : MonoBehaviour
         //currentValue = newValue / maxValue;
 
         // multiply current value by max scale to get new scale value
-        float newScale = newValue;
-
+        float newScale = newValue / maxValue;
+        // Clamp between 0 and 1
+        newScale = Mathf.Clamp(newScale, 0.0f, 1.0f);
+        
         // transform local scale to new scale (scale self, not current value bar)
 
         transform.localScale = new Vector3(newScale, transform.localScale.y, transform.localScale.z);
