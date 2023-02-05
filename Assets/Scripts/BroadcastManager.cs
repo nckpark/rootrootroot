@@ -12,6 +12,7 @@ public class BroadcastManager : MonoBehaviour
     private float _difficultyWaveTimer;
     private Dictionary<int, List<BroadcastType>> _broadcastTypesByValue;
     private int _currentPointLimit;
+    private int _minPointValue;
     private int _maxPointValue;
 
     [SerializeField] private CinemachineBrain _cameraBrain;
@@ -49,8 +50,10 @@ public class BroadcastManager : MonoBehaviour
                 _broadcastTypesByValue[castType.pointValue] = new List<BroadcastType>();
             _broadcastTypesByValue[castType.pointValue].Add(castType);
         }
-        _currentPointLimit = _broadcastTypesByValue.Aggregate((l, r) => l.Key < r.Key ? l : r).Key; 
+        _minPointValue = _broadcastTypesByValue.Aggregate((l, r) => l.Key < r.Key ? l : r).Key;
         _maxPointValue = _broadcastTypesByValue.Aggregate((l, r) => l.Key > r.Key ? l : r).Key;
+        
+        _currentPointLimit = _minPointValue;
         _difficultyWaveTimer = _difficultyWaveDuration;
 
         _cameraBrain.m_DefaultBlend.m_Time = startTransitionTime;
@@ -122,9 +125,9 @@ public class BroadcastManager : MonoBehaviour
 
     public BroadcastType PickNextBroadcastType()
     {
-        int pointValue = Random.Range(1, _currentPointLimit);
+        int pointValue = Random.Range(1, _currentPointLimit + 1);
         int optionsCount = _broadcastTypesByValue[pointValue].Count;
-        BroadcastType nextType = _broadcastTypesByValue[pointValue][Random.Range(0, optionsCount - 1)];
+        BroadcastType nextType = _broadcastTypesByValue[pointValue][Random.Range(0, optionsCount)];
         return nextType;
     }
 
@@ -144,6 +147,8 @@ public class BroadcastManager : MonoBehaviour
     {
         _startTransitionComplete = false;
         _playerScoreManager.Reset();
+        _currentPointLimit = _minPointValue;
+        _difficultyWaveTimer = _difficultyWaveDuration;
         _roundTimer = roundLengthMinutes * 60;
         _roundActive = true;
 
