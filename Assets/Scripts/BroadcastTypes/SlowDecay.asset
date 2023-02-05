@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: SlowDecay
   m_EditorClassIdentifier: 
-  pointValue: 1
-  broadcastDuration: 10
+  pointValue: 2
+  broadcastDuration: 15
   maxMomentum: 1
   videoSet:
-    idleClip: {fileID: 32900000, guid: 2e6068e539314274090ddadddcb0a053, type: 3}
-    winningClip: {fileID: 32900000, guid: cca1d7e14a901274cb05f6c415ad29de, type: 3}
-    losingClip: {fileID: 32900000, guid: a3407e2987460254e89dc49a9b82f457, type: 3}
+    idleClip: {fileID: 32900000, guid: 65134ba26db006046bbbc8e81b3ffc64, type: 3}
+    winningClip: {fileID: 32900000, guid: 1d48b01c453c7ac49b962aaee0088526, type: 3}
+    losingClip: {fileID: 32900000, guid: 22b073ce636e67f498cce3b270fac8f3, type: 3}
   winThreshold: 0.5
   momentumDecay: 0.05
   decayDelay: 3

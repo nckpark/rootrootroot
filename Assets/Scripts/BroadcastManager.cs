@@ -8,6 +8,12 @@ using UnityEngine;
 public class BroadcastManager : MonoBehaviour
 {
     [SerializeField] private BroadcastType[] _broadcastTypes;
+    [SerializeField] private float _difficultyWaveDuration = 20f;
+    private float _difficultyWaveTimer;
+    private Dictionary<int, List<BroadcastType>> _broadcastTypesByValue;
+    private int _currentPointLimit;
+    private int _maxPointValue;
+
     [SerializeField] private CinemachineBrain _cameraBrain;
     [SerializeField] private PlayerFocusController _playerController;
 
@@ -35,6 +41,17 @@ public class BroadcastManager : MonoBehaviour
     {
         _playerScoreManager = GameObject.FindObjectOfType<ScoreManager>();
         _broadcasters = GameObject.FindObjectsOfType<Watchable>().Where((w) => w.broadcaster == true).ToArray();
+
+        _broadcastTypesByValue = new Dictionary<int, List<BroadcastType>>();
+        foreach(BroadcastType castType in _broadcastTypes)
+        {
+            if(!_broadcastTypesByValue.ContainsKey(castType.pointValue))
+                _broadcastTypesByValue[castType.pointValue] = new List<BroadcastType>();
+            _broadcastTypesByValue[castType.pointValue].Add(castType);
+        }
+        _currentPointLimit = _broadcastTypesByValue.Aggregate((l, r) => l.Key < r.Key ? l : r).Key; 
+        _maxPointValue = _broadcastTypesByValue.Aggregate((l, r) => l.Key > r.Key ? l : r).Key;
+        _difficultyWaveTimer = _difficultyWaveDuration;
 
         _cameraBrain.m_DefaultBlend.m_Time = startTransitionTime;
 
@@ -76,11 +93,19 @@ public class BroadcastManager : MonoBehaviour
         if(_startTransitionComplete == false)
             return;
 
+        _difficultyWaveTimer -= Time.deltaTime;
+        if(_difficultyWaveTimer <= 0f)
+        {
+            _difficultyWaveTimer = _difficultyWaveDuration;
+            if(_currentPointLimit < _maxPointValue)
+                _currentPointLimit++;
+        }
+
         foreach(Watchable caster in _broadcasters)
         {
+            BroadcastType nextType = PickNextBroadcastType();
             if(caster.currentBroadcast == null)
             {
-                BroadcastType nextType = _broadcastTypes[Random.Range(0, _broadcastTypes.Length)];
                 caster.SetBroadcast(new Broadcast(
                     _playerScoreManager,
                     nextType.videoSet,
@@ -93,6 +118,14 @@ public class BroadcastManager : MonoBehaviour
                 ));
             }
         }
+    }
+
+    public BroadcastType PickNextBroadcastType()
+    {
+        int pointValue = Random.Range(1, _currentPointLimit);
+        int optionsCount = _broadcastTypesByValue[pointValue].Count;
+        BroadcastType nextType = _broadcastTypesByValue[pointValue][Random.Range(0, optionsCount - 1)];
+        return nextType;
     }
 
     public void ClearAllBroadcasts()
