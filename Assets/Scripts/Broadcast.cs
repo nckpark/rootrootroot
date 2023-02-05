@@ -7,13 +7,13 @@ public class Broadcast
     // bool is winning
     public bool isWinning = false;
 
-    public int pointValue = 0;
+    public int pointValue = 10;
 
     // float momentum, any value
     public float momentum = 0.0f;
 
     // max momentum
-    public float maxMomentum = 5000.0f;
+    public float maxMomentum = 1.0f;
 
     // float win threshold, how much momentum is needed to win
     public float winThreshold = 0.5f;
@@ -46,15 +46,19 @@ public class Broadcast
 
     public ScoreManager playerScoreManager;
 
+    public VideoSet videoSet;
+
+    // Start is called before the first frame update
     public Broadcast(
-        ScoreManager scoreManager,
-        int pointValue=0,
-        float duration=25.0f,
-        float maxMomentum=5000f,
-        float winThreshold=0.5f,
-        float momentumDecay=0.1f, 
-        float decayDelay=1.0f
-    )
+       ScoreManager scoreManager,
+       VideoSet videoSet,
+       int pointValue = 0,
+       float duration = 25.0f,
+       float maxMomentum = 5000f,
+       float winThreshold = 0.5f,
+       float momentumDecay = 0.1f,
+       float decayDelay = 1.0f
+   )
     {
         this.pointValue = pointValue;
         this.broadcastDuration = duration;
@@ -63,8 +67,14 @@ public class Broadcast
         this.momentumDecay = momentumDecay;
         this.decayDelay = decayDelay;
         this.playerScoreManager = scoreManager;
+        this.videoSet = videoSet;
     }
 
+    public void Begin()
+    {
+        this.NotifyVideoSwitcher();
+    }
+    
     // Update is called by Watchable once per frame
     public void Update()
     {
@@ -80,7 +90,14 @@ public class Broadcast
                 ResetDecayDelay();
         }
     }
-    
+
+    // update momentum meter
+    void updateMomentumMeter()
+    {
+        if (watchable.momentumMeter != null)
+            watchable.momentumMeter.UpdateCurrentValue(momentum, maxMomentum, isWinning);
+    }
+
     public void Encourage(float amount)
     {
         if(broadcastStatus != BroadcastStatus.Playing)
@@ -89,6 +106,7 @@ public class Broadcast
         // add to momentum
         momentum += amount;
         DelayDecay();
+        updateMomentumMeter();
     }
 
     void OnStoppedWinning()
@@ -98,12 +116,23 @@ public class Broadcast
 
     }
 
+    // Notify video switcher
+    void NotifyVideoSwitcher()
+    {
+        // log notifying
+        Debug.Log("Notifying switcher!");
+        // call switch video clip
+        if (watchable != null)
+            watchable.SwitchVideoClip(broadcastStatus);
+    }
+
     void OnBroadcastWon()
     {
         // log "Broadcast Won!"
         Debug.Log("Broadcast Won!");
         // award points
         playerScoreManager.AwardPoints(this);
+        NotifyVideoSwitcher();
     }
 
     void OnBroadcastLost()
@@ -111,6 +140,7 @@ public class Broadcast
         // log "Broadcast Lost!"
         Debug.Log("Broadcast Lost!");
         playerScoreManager.AwardPoints(this);
+        NotifyVideoSwitcher();
     }
 
     public void EndBroadcast()
@@ -137,7 +167,7 @@ public class Broadcast
             // make cube red
             watchable.GetComponent<Renderer>().material.color = Color.blue;
             // scale cube by momentum
-            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
+            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 2.0f);
 
         }
         else
@@ -150,7 +180,7 @@ public class Broadcast
             isWinning = false;
             // make cube red
             watchable.GetComponent<Renderer>().material.color = Color.red;
-            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 1.0f);
+            watchable.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * (momentum + 2.0f);
         }
     }
 
@@ -164,6 +194,7 @@ public class Broadcast
                 momentum -= momentumDecay * Time.deltaTime;
                 // clamp momentum between 0 and 5000
                 momentum = Mathf.Clamp(momentum, 0.0f, maxMomentum);
+                updateMomentumMeter();
             }
         }
     }

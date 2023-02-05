@@ -25,6 +25,7 @@ public class BroadcastManager : MonoBehaviour
                 BroadcastType nextType = _broadcastTypes[Random.Range(0, _broadcastTypes.Length)];
                 caster.SetBroadcast(new Broadcast(
                     _playerScoreManager,
+                    nextType.videoSet,
                     nextType.pointValue,
                     nextType.broadcastDuration,
                     nextType.maxMomentum,
