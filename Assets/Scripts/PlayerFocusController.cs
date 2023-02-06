@@ -116,6 +116,11 @@ public class PlayerFocusController : MonoBehaviour
         _virtualCameras[_activeCameraIdx].Priority = 99;
     }
 
+    public void OnQuit()
+    {
+        Application.Quit();
+    }
+
     public void Reset()
     {
         _virtualCameras[_activeCameraIdx].Priority = 10;

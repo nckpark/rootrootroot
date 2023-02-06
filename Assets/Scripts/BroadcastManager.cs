@@ -15,6 +15,9 @@ public class BroadcastManager : MonoBehaviour
     private int _minPointValue;
     private int _maxPointValue;
 
+    public AudioClip splashClip;
+    public AudioClip gameplayClip;
+
     [SerializeField] private CinemachineBrain _cameraBrain;
     [SerializeField] private PlayerFocusController _playerController;
 
