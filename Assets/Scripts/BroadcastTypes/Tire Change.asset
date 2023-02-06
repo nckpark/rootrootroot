@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
+  m_Name: Tire Change
+  m_EditorClassIdentifier: 
+  pointValue: 1
+  broadcastDuration: 18
+  maxMomentum: 1
+  videoSet:
+    idleClip: {fileID: 32900000, guid: 146c5bd37214cae469c9aa7f49b38958, type: 3}
+    winningClip: {fileID: 32900000, guid: 5d9f16cb338884d43aac811404cd6990, type: 3}
+    losingClip: {fileID: 32900000, guid: d72e0864b406d374aa324432ec2fdc21, type: 3}
+  shoutPrompts:
+  - Change that tire!
+  winThreshold: 0.5
+  momentumDecay: 0.1
+  decayDelay: 1

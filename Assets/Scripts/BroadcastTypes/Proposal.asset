@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
+  m_Name: Proposal
+  m_EditorClassIdentifier: 
+  pointValue: 1
+  broadcastDuration: 15
+  maxMomentum: 0.8
+  videoSet:
+    idleClip: {fileID: 32900000, guid: 195128d403e5e294b9ac7fe74b76d325, type: 3}
+    winningClip: {fileID: 32900000, guid: 9083d290289b904459d3e2d638c2cc05, type: 3}
+    losingClip: {fileID: 32900000, guid: 0f2a13a7fe77afe43bb2ef95380f11dd, type: 3}
+  shoutPrompts:
+  - Love! Love! Love!
+  winThreshold: 0.3
+  momentumDecay: 0.05
+  decayDelay: 1
