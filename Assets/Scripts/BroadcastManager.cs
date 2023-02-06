@@ -199,9 +199,9 @@ public class BroadcastManager : MonoBehaviour
 
         _playerController.promptsCanvas.alpha = 0;
 
-        _wonText.text = _playerScoreManager.broadcastsWon.Count.ToString();
-        _lostText.text = _playerScoreManager.broadcastsLost.Count.ToString();
-        _totalText.text = (_playerScoreManager.broadcastsWon.Count - _playerScoreManager.broadcastsLost.Count).ToString();
+        _wonText.text = (_playerScoreManager.broadcastsWon.Count * 100).ToString();
+        _lostText.text = (_playerScoreManager.broadcastsLost.Count * 100).ToString();
+        _totalText.text = ((_playerScoreManager.broadcastsWon.Count - _playerScoreManager.broadcastsLost.Count) * 100).ToString();
 
         _gameOverCanvas.alpha = 1;
         
