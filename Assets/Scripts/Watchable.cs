@@ -15,6 +15,13 @@ public class Watchable : MonoBehaviour
     public VideoPlayer videoPlayer;
     public MomentumMeter momentumMeter;
 
+    private ParticleSystem _winParticleSystem;
+    private ParticleSystem _loseParticleSystem;
+
+
+    public AudioSource _winAudioSystem;
+    public AudioSource _loseAudioSystem;
+
     public float nextBroadcastDelay = 3f;
 
     private float _nextBroadcastDelayTimer;
@@ -26,6 +33,12 @@ public class Watchable : MonoBehaviour
         videoPlayer = GetComponentInChildren<VideoPlayer>();
         // Assign Child Momentum Meter
         momentumMeter = GetComponentInChildren<MomentumMeter>();
+        // Assign Child Particle Systems
+        _winParticleSystem = transform.Find("WinParticleSystem").GetComponent<ParticleSystem>();
+        _loseParticleSystem = transform.Find("LoseParticleSystem").GetComponent<ParticleSystem>();
+        // Assign Child Audio Sources
+        _winAudioSystem = transform.Find("WinAudio").GetComponent<AudioSource>();
+        _loseAudioSystem = transform.Find("LoseAudio").GetComponent<AudioSource>();
     }
 
 
@@ -84,6 +97,26 @@ public class Watchable : MonoBehaviour
     public void StartNextBroadcastDelay()
     {
         _nextBroadcastDelayTimer = nextBroadcastDelay;
+    }
+
+    public void PlayWinParticles()
+    {
+        _winParticleSystem.Play();
+    }
+    
+    public void PlayWinAudio()
+    {
+        _winAudioSystem.Play();
+    }
+
+    public void PlayLoseAudio()
+    {
+        _loseAudioSystem.Play();
+    }
+
+    public void PlayLoseParticles()
+    {
+        _loseParticleSystem.Play();
     }
 
     public void SwitchVideoClip(Broadcast.BroadcastStatus broadcastStatus)

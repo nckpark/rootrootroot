@@ -16,9 +16,9 @@ MonoBehaviour:
   broadcastDuration: 12
   maxMomentum: 1
   videoSet:
-    idleClip: {fileID: 32900000, guid: 2acb869c21b4a7f4798dffdf8f48f627, type: 3}
-    winningClip: {fileID: 32900000, guid: d4cc99a0ea3efee45b0fa8e7574a844d, type: 3}
-    losingClip: {fileID: 32900000, guid: 221426575cd5e8c48bb781a194942458, type: 3}
+    idleClip: {fileID: 32900000, guid: 6081df0b1e4ee1e40b5edaa7f6900e4a, type: 3}
+    winningClip: {fileID: 32900000, guid: 1834647f6fe26484588dd622cfff1097, type: 3}
+    losingClip: {fileID: 32900000, guid: f753644754342c24abd40e85d4ec1238, type: 3}
   shoutPrompts:
   - Buy! Buy! Buy!
   winThreshold: 0.6
