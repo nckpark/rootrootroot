@@ -765,7 +765,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159437265}
-  m_LocalRotation: {x: -0.02520063, y: -0.0048695398, z: -0.00012275594, w: 0.99967057}
+  m_LocalRotation: {x: -0.02520063, y: -0.0048695374, z: -0.0001227559, w: 0.99967057}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5246,6 +5246,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2ced9f2c1bea434b98061d740261e09, type: 2}
   - {fileID: 11400000, guid: bcd0aca067130ab46b8c2af1b574295d, type: 2}
   - {fileID: 11400000, guid: 157146e58fd05484298eaa2949e671fe, type: 2}
+  - {fileID: 11400000, guid: 3ee8aecba6562414ca8b8a97375dbd56, type: 2}
+  - {fileID: 11400000, guid: 73c68ecdc3688e54db61ffc04325f769, type: 2}
   _difficultyWaveDuration: 10
   splashClip: {fileID: 8300000, guid: 137f0feadeb3e4f4d956b151c028ed53, type: 3}
   gameplayClip: {fileID: 8300000, guid: a52d4d3dab74b444f8e064d0341be03d, type: 3}
@@ -6103,11 +6105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3646760582730454399, guid: 54b935518d661f04b9df2cebb7eea1e9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -23.90002
+      value: -23.900024
       objectReference: {fileID: 0}
     - target: {fileID: 3646760582730454399, guid: 54b935518d661f04b9df2cebb7eea1e9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -299.9
+      value: -299.90002
       objectReference: {fileID: 0}
     - target: {fileID: 3646760582730454399, guid: 54b935518d661f04b9df2cebb7eea1e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: Tire Change
   m_EditorClassIdentifier: 
-  pointValue: 1
+  pointValue: 2
   broadcastDuration: 6
   maxMomentum: 0.4
   videoSet:

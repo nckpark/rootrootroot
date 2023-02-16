@@ -20,9 +20,8 @@ MonoBehaviour:
     winningClip: {fileID: 32900000, guid: f116e4a54fc258f45b30e791687216c5, type: 3}
     losingClip: {fileID: 32900000, guid: 5426139e07784b248b2d29a6de8387d7, type: 3}
   shoutPrompts:
-  - Allez Allez Allez!
-  - Don't Use Your Hands!
-  - Come on now!
+  - Score a goal!
+  - Don't Use Hands!
   winThreshold: 0.25
   momentumDecay: 0.05
   decayDelay: 2

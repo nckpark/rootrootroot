@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: Horror
   m_EditorClassIdentifier: 
-  pointValue: 2
+  pointValue: 3
   broadcastDuration: 10
   maxMomentum: 0.7
   videoSet:

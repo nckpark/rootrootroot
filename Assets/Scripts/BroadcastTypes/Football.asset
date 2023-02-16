@@ -20,9 +20,9 @@ MonoBehaviour:
     winningClip: {fileID: 32900000, guid: fd7fb525b93602e41930956ce8c45730, type: 3}
     losingClip: {fileID: 32900000, guid: 750e8d4efa63aa64982f5e25354a97b8, type: 3}
   shoutPrompts:
-  - Here we go!
   - Big play! Big play!
   - Go long!
+  - Sports! Sports! Sports!
   winThreshold: 0.25
   momentumDecay: 0.05
   decayDelay: 2

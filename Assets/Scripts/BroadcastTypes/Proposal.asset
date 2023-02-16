@@ -22,6 +22,7 @@ MonoBehaviour:
   shoutPrompts:
   - Love! Love! Love!
   - Say yes! Say yes!
+  - Get engaged!
   winThreshold: 0.3
   momentumDecay: 0.05
   decayDelay: 1
