@@ -5240,13 +5240,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _broadcastTypes:
-  - {fileID: 11400000, guid: 157146e58fd05484298eaa2949e671fe, type: 2}
-  - {fileID: 11400000, guid: 87eccf4c9d7f3d24e8a169839a3972eb, type: 2}
   - {fileID: 11400000, guid: 3fd9055e85beabd4b972b79f3bf2a8c5, type: 2}
   - {fileID: 11400000, guid: 66b5009c6a6fce84c847a430fd58fa7c, type: 2}
+  - {fileID: 11400000, guid: 87eccf4c9d7f3d24e8a169839a3972eb, type: 2}
   - {fileID: 11400000, guid: a2ced9f2c1bea434b98061d740261e09, type: 2}
   - {fileID: 11400000, guid: bcd0aca067130ab46b8c2af1b574295d, type: 2}
-  _difficultyWaveDuration: 15
+  - {fileID: 11400000, guid: 157146e58fd05484298eaa2949e671fe, type: 2}
+  _difficultyWaveDuration: 10
   splashClip: {fileID: 8300000, guid: 137f0feadeb3e4f4d956b151c028ed53, type: 3}
   gameplayClip: {fileID: 8300000, guid: a52d4d3dab74b444f8e064d0341be03d, type: 3}
   _cameraBrain: {fileID: 1581681150}
@@ -5963,7 +5963,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934996290}
-  m_LocalRotation: {x: -0.016109956, y: -0.62504333, z: -0.012904267, w: 0.7803172}
+  m_LocalRotation: {x: -0.016109968, y: -0.62504333, z: -0.012904277, w: 0.7803172}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

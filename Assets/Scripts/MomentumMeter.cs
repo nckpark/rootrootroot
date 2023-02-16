@@ -14,6 +14,9 @@ public class MomentumMeter : MonoBehaviour
     // max scale value of meter
     public float maxValue = 2.5f;
 
+    public Color winColor;
+    public Color loseColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +50,11 @@ public class MomentumMeter : MonoBehaviour
         {
             if (isWinning)
             {
-                currentValueBar.GetComponent<Renderer>().material.color = Color.green;
+                currentValueBar.GetComponent<Renderer>().material.color = winColor;
             }
             else
             {
-                currentValueBar.GetComponent<Renderer>().material.color = Color.red;
+                currentValueBar.GetComponent<Renderer>().material.color = loseColor;
             }
         }
 

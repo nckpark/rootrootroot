@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: Horror
   m_EditorClassIdentifier: 
-  pointValue: 1
-  broadcastDuration: 18
-  maxMomentum: 2
+  pointValue: 2
+  broadcastDuration: 10
+  maxMomentum: 0.7
   videoSet:
     idleClip: {fileID: 32900000, guid: 754ab88f1d3970444ac20b6877c2d39f, type: 3}
     winningClip: {fileID: 32900000, guid: 0db13e3f0088d1c45834c37679dd8134, type: 3}
     losingClip: {fileID: 32900000, guid: 853d0b40e2d1cc54fa44be9d756a5eb9, type: 3}
   shoutPrompts:
-  - Don't go in!
-  winThreshold: 0.7
+  - Don't go in there!
+  - He's got a knife!
+  - Run away!
+  - Get out of there!
+  winThreshold: 0.5
   momentumDecay: 0.05
   decayDelay: 1

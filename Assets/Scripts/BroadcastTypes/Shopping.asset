@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: Shopping
   m_EditorClassIdentifier: 
-  pointValue: 1
-  broadcastDuration: 12
-  maxMomentum: 1
+  pointValue: 2
+  broadcastDuration: 11
+  maxMomentum: 0.9
   videoSet:
     idleClip: {fileID: 32900000, guid: 6081df0b1e4ee1e40b5edaa7f6900e4a, type: 3}
-    winningClip: {fileID: 32900000, guid: 1834647f6fe26484588dd622cfff1097, type: 3}
-    losingClip: {fileID: 32900000, guid: f753644754342c24abd40e85d4ec1238, type: 3}
+    winningClip: {fileID: 32900000, guid: d4cc99a0ea3efee45b0fa8e7574a844d, type: 3}
+    losingClip: {fileID: 32900000, guid: 221426575cd5e8c48bb781a194942458, type: 3}
   shoutPrompts:
   - Buy! Buy! Buy!
+  - Use your credit card!
+  - Buy more stuff!
   winThreshold: 0.6
   momentumDecay: 0.1
   decayDelay: 1

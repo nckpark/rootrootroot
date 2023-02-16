@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: DragRace
   m_EditorClassIdentifier: 
-  pointValue: 1
-  broadcastDuration: 21
-  maxMomentum: 1
+  pointValue: 3
+  broadcastDuration: 12
+  maxMomentum: 0.8
   videoSet:
     idleClip: {fileID: 32900000, guid: 146c5bd37214cae469c9aa7f49b38958, type: 3}
     winningClip: {fileID: 32900000, guid: 5d9f16cb338884d43aac811404cd6990, type: 3}
