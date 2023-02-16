@@ -18,7 +18,6 @@ public class Watchable : MonoBehaviour
     private ParticleSystem _winParticleSystem;
     private ParticleSystem _loseParticleSystem;
 
-
     public AudioSource _winAudioSystem;
     public AudioSource _loseAudioSystem;
 
@@ -121,6 +120,8 @@ public class Watchable : MonoBehaviour
 
     public void SwitchVideoClip(Broadcast.BroadcastStatus broadcastStatus)
     {
+        if (currentBroadcast == null) return;
+        if (videoPlayer == null) return;
 
         // Log message that we're switching
         // Debug.Log("Switching video clip to " + broadcastStatus.ToString());
@@ -139,6 +140,6 @@ public class Watchable : MonoBehaviour
                 break;
         }
 
-        videoPlayer.Play();
+        //videoPlayer.Play();
     }
 }

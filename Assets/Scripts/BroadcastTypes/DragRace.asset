@@ -21,6 +21,7 @@ MonoBehaviour:
     losingClip: {fileID: 32900000, guid: d72e0864b406d374aa324432ec2fdc21, type: 3}
   shoutPrompts:
   - Werk! Werk! Werk!
+  - Drag Race! Drag Race!
   winThreshold: 0.5
   momentumDecay: 0.15
   decayDelay: 0.5
