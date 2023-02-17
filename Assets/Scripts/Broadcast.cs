@@ -158,7 +158,8 @@ public class Broadcast
         playerScoreManager.AwardPoints(this);
         // show bark
         playerController.AddWonBark(watchable);
-
+        watchable.PlayWinParticles();
+        watchable.PlayWinAudio();
         NotifyVideoSwitcher();
     }
 
@@ -167,7 +168,8 @@ public class Broadcast
         playerScoreManager.AwardPoints(this);
         // show bark
         playerController.AddLostBark(watchable);
-
+        watchable.PlayLoseParticles();
+        watchable.PlayLoseAudio();
         NotifyVideoSwitcher();
     }
 

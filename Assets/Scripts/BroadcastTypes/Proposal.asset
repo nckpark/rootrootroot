@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
   m_Name: Proposal
   m_EditorClassIdentifier: 
-  pointValue: 1
-  broadcastDuration: 15
+  pointValue: 2
+  broadcastDuration: 11
   maxMomentum: 0.8
   videoSet:
     idleClip: {fileID: 32900000, guid: 195128d403e5e294b9ac7fe74b76d325, type: 3}
@@ -21,6 +21,8 @@ MonoBehaviour:
     losingClip: {fileID: 32900000, guid: 0f2a13a7fe77afe43bb2ef95380f11dd, type: 3}
   shoutPrompts:
   - Love! Love! Love!
+  - Say yes! Say yes!
+  - Get engaged!
   winThreshold: 0.3
   momentumDecay: 0.05
   decayDelay: 1

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
+  m_Name: Soccer
+  m_EditorClassIdentifier: 
+  pointValue: 1
+  broadcastDuration: 9
+  maxMomentum: 0.5
+  videoSet:
+    idleClip: {fileID: 32900000, guid: 4ce15d4530d306448b1c936911d85b54, type: 3}
+    winningClip: {fileID: 32900000, guid: f116e4a54fc258f45b30e791687216c5, type: 3}
+    losingClip: {fileID: 32900000, guid: 5426139e07784b248b2d29a6de8387d7, type: 3}
+  shoutPrompts:
+  - Score a goal!
+  - Don't Use Hands!
+  winThreshold: 0.25
+  momentumDecay: 0.05
+  decayDelay: 2

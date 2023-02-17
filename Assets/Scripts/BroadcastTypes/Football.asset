@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe12313f0de8cd498349e5ac721c259, type: 3}
+  m_Name: Football
+  m_EditorClassIdentifier: 
+  pointValue: 1
+  broadcastDuration: 9
+  maxMomentum: 0.5
+  videoSet:
+    idleClip: {fileID: 32900000, guid: 2bb7c28a1bf67c24f8c7ed348797f963, type: 3}
+    winningClip: {fileID: 32900000, guid: fd7fb525b93602e41930956ce8c45730, type: 3}
+    losingClip: {fileID: 32900000, guid: 750e8d4efa63aa64982f5e25354a97b8, type: 3}
+  shoutPrompts:
+  - Big play! Big play!
+  - Go long!
+  - Sports! Sports! Sports!
+  winThreshold: 0.25
+  momentumDecay: 0.05
+  decayDelay: 2

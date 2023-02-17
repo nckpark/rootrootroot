@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Boxing
   m_EditorClassIdentifier: 
   pointValue: 1
-  broadcastDuration: 14
-  maxMomentum: 1
+  broadcastDuration: 9
+  maxMomentum: 0.5
   videoSet:
     idleClip: {fileID: 32900000, guid: 868bbb69c2eea4c48be4d503b5cf4d45, type: 3}
     winningClip: {fileID: 32900000, guid: cf5b6f9f6c00ecc44ac93fffdf507c42, type: 3}
     losingClip: {fileID: 32900000, guid: e4957278a59205b4a8dd6e0d2b5678b3, type: 3}
   shoutPrompts:
   - Fight! Fight! Fight!
-  winThreshold: 0.5
+  - Bob and Weave!
+  - Punch that guy!
+  winThreshold: 0.25
   momentumDecay: 0.05
-  decayDelay: 3
+  decayDelay: 2
